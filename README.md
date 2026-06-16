@@ -1,6 +1,6 @@
 # Manual de estudio Cessna 152
 
-Proyecto en LaTeX, en español, basado en el archivo de referencia `Cessna-152-POH.pdf`.
+Proyecto en LaTeX, en español, basado en el archivo de referencia `Cessna-152-POH.pdf` y complementado con el texto digitalizado cargado en esta conversación.
 
 Este repositorio no contiene una traducción literal ni una reproducción completa del POH/AFM. Es una guía de estudio resumida y didáctica. Para vuelo real debe usarse el POH/AFM aprobado del avión específico, sus suplementos, registros de peso y balance, listas de equipo y procedimientos de la escuela o instructor.
 
@@ -21,10 +21,11 @@ pdflatex main.tex
 
 ## Archivos
 
-- `main.tex`: libro completo en LaTeX.
+- `main.tex`: libro principal en LaTeX.
+- `manual_complementado_es.md`: complemento consolidado en español con especificaciones, limitaciones, emergencias, procedimientos normales, performance, peso y balance, sistemas y números de memoria extraídos del material digitalizado.
 - `Makefile`: comandos simples de compilación y limpieza.
 - `.gitignore`: exclusiones de auxiliares de LaTeX.
 
 ## Estado
 
-Versión inicial 0.1. Incluye especificaciones, limitaciones, procedimientos de emergencia, procedimientos normales, performance, peso y balance, sistemas y checklist resumida.
+Versión 0.2. Se agregó el complemento en español del material digitalizado, incluyendo corrección de OCR, advertencia por inconsistencia de combustible 37,5 gal vs 24,5 gal estándar, tablas resumidas de performance y checklists de emergencia/normales.
