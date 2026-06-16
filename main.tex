@@ -1,0 +1,695 @@
+\documentclass[11pt,oneside]{book}
+
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=2.25cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black,
+  pdftitle={Manual de estudio Cessna 152},
+  pdfauthor={AVIA Rockets}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.2em,leftmargin=1.4em}
+\setlist[enumerate]{topsep=0.3em,itemsep=0.2em,leftmargin=1.6em}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Manual de estudio Cessna 152}
+\rhead{\leftmark}
+\cfoot{\thepage\ de \pageref{LastPage}}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\kias}{\textsc{kias}}
+\newcommand{\kcas}{\textsc{kcas}}
+\newcommand{\rpm}{\textsc{rpm}}
+\newcommand{\gph}{\textsc{gph}}
+\newcommand{\lb}{\textsc{lb}}
+\newcommand{\ft}{\textsc{ft}}
+\newcommand{\nm}{\textsc{nm}}
+\newcommand{\note}[1]{\begin{quote}\small\textbf{Nota.} #1\end{quote}}
+\newcommand{\warning}[1]{\begin{quote}\small\textbf{Advertencia.} #1\end{quote}}
+\newenvironment{checklist}{\begin{enumerate}[label=\arabic*.]}{\end{enumerate}}
+
+\title{\Huge Manual de estudio\\Cessna 152\\\large Guía resumida en español basada en POH/AFM}
+\author{AVIA Rockets}
+\date{Versión 0.1}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\chapter*{Aviso operativo y legal}
+Este documento es una guía de estudio en español y no es un Manual de Vuelo aprobado por autoridad aeronáutica. No reemplaza el POH/AFM aplicable al avión específico, sus suplementos, listas de equipo, registros de peso y balance, procedimientos de la escuela, ni instrucciones de un instructor habilitado.
+
+El material fue redactado como resumen técnico y didáctico a partir del archivo de referencia \texttt{Cessna-152-POH.pdf}. No pretende ser una traducción literal ni una reproducción completa del manual original. Antes de operar una aeronave real se debe consultar el POH/AFM oficial que corresponda a la matrícula, configuración, motor, hélice, aviónica y modificaciones instaladas.
+
+\textbf{Criterio de uso:} sirve para estudiar, ordenar conceptos, preparar briefings y construir tarjetas o preguntas. Para vuelo real, prevalece el manual aprobado y la normativa vigente.
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Resumen del avión}
+
+El Cessna 152 es un avión monomotor, metálico, de ala alta, tren triciclo fijo y dos plazas. Fue diseñado para instrucción, navegación básica y operación general de baja complejidad. Su operación exige disciplina de velocidades, control de mezcla, vigilancia de combustible y respeto estricto de peso y balance.
+
+\section{Datos generales de performance y capacidad}
+
+Las siguientes cifras son referencias de estudio tomadas del POH abreviado. Pueden variar por configuración, estado del avión, instalación de carenados, altitud, temperatura, viento, técnica de pilotaje y modificaciones.
+
+\begin{longtable}{@{}p{0.43\textwidth}p{0.22\textwidth}p{0.25\textwidth}@{}}
+\toprule
+\textbf{Concepto} & \textbf{Valor} & \textbf{Comentario} \\
+\midrule
+Velocidad máxima al nivel del mar & 110 kt & Configuración con carenados de velocidad. \\
+Crucero al 75\% a 8.000 ft & 107 kt & Mezcla empobrecida recomendada. \\
+Régimen de ascenso al nivel del mar & 715 ft/min & Condición estándar. \\
+Techo de servicio & 14.700 ft & Referencia de performance. \\
+Carrera de despegue & 725 ft & Condición de tabla. \\
+Distancia de despegue sobre obstáculo de 50 ft & 1.340 ft & Usar siempre correcciones conservadoras. \\
+Carrera de aterrizaje & 475 ft & Condición de tabla. \\
+Distancia de aterrizaje sobre obstáculo de 50 ft & 1.200 ft & Redondeada para estudio. \\
+Pérdida sin flaps, potencia cortada & 48 KCAS & Peso máximo. \\
+Pérdida con flaps abajo, potencia cortada & 43 KCAS & Peso máximo. \\
+Peso máximo en rampa & 1.675 lb & No confundir con peso de despegue. \\
+Peso máximo de despegue y aterrizaje & 1.670 lb & Límite operativo. \\
+Carga útil típica, C152 & 574 lb & Depende del avión real. \\
+Carga útil típica, C152 II & 542 lb & Depende del avión real. \\
+Equipaje máximo & 120 lb & Ver zonas y límites de CG. \\
+Combustible total estándar & 26 gal & 13 gal por ala. \\
+Combustible utilizable estándar & 24,5 gal & En todas las condiciones aprobadas. \\
+Aceite & 6 qt & Mínimo operativo: 4 qt. \\
+Motor & Lycoming O-235-L2C & 110 BHP a 2.550 RPM. \\
+Hélice & Paso fijo, 69 in & Ver equipo instalado. \\
+\bottomrule
+\end{longtable}
+
+\section{Rangos de alcance y autonomía}
+
+Con 24,5 galones utilizables, mezcla empobrecida recomendada y reserva de 45 minutos al 45\% de potencia, el POH abreviado muestra como referencia: 350 NM y 3,4 horas al 75\% a 8.000 ft; y 415 NM y 5,2 horas en perfil de máximo alcance a 10.000 ft. Con estanques de largo alcance de 37,5 galones utilizables, las referencias aumentan a 580 NM y 5,5 horas al 75\% a 8.000 ft, y hasta 690 NM y 8,7 horas en máximo alcance a 10.000 ft.
+
+\warning{Estos números no son autorización para planificar combustible al límite. En entrenamiento conviene usar márgenes conservadores, medir combustible físicamente cuando sea posible y aplicar reservas mayores a las mínimas.}
+
+\chapter{Limitaciones}
+
+\section{Velocidades limitantes}
+
+Salvo indicación contraria, las velocidades de operación práctica se expresan en KIAS. Los valores KCAS se incluyen cuando el POH los presenta como referencia de calibración.
+
+\begin{longtable}{@{}p{0.14\textwidth}p{0.31\textwidth}p{0.16\textwidth}p{0.29\textwidth}@{}}
+\toprule
+\textbf{Símbolo} & \textbf{Nombre} & \textbf{Límite} & \textbf{Uso práctico} \\
+\midrule
+VNE & Nunca exceder & 149 KIAS / 145 KCAS & No sobrepasar en ninguna operación. \\
+VNO & Crucero estructural máximo & 111 KIAS / 108 KCAS & Sobre este valor, sólo aire calmo y con cautela. \\
+VA & Maniobra a 1.670 lb & 104 KIAS / 101 KCAS & Evitar comandos completos o bruscos por encima. \\
+VA & Maniobra a 1.500 lb & 98 KIAS / 96 KCAS & Menor peso implica menor VA. \\
+VA & Maniobra a 1.350 lb & 93 KIAS / 91 KCAS & Usar la VA adecuada al peso real. \\
+VFE & Flaps extendidos & 85 KIAS / 87 KCAS & No extender flaps sobre este límite. \\
+Ventanas abiertas & Máxima con ventana abierta & 149 KIAS & Ventanas operables hasta VNE. \\
+\bottomrule
+\end{longtable}
+
+\section{Marcaciones del velocímetro}
+
+\begin{tabularx}{\textwidth}{@{}p{0.22\textwidth}p{0.18\textwidth}Y@{}}
+\toprule
+\textbf{Marcación} & \textbf{Rango} & \textbf{Significado} \\
+\midrule
+Arco blanco & 35--85 KIAS & Rango de operación con flaps. El extremo superior limita la extensión de flaps. \\
+Arco verde & 40--111 KIAS & Operación normal. El límite superior corresponde a VNO. \\
+Arco amarillo & 111--149 KIAS & Usar sólo con aire suave y movimientos prudentes. \\
+Línea roja & 149 KIAS & Límite absoluto de velocidad. \\
+\bottomrule
+\end{tabularx}
+
+\section{Motor, aceite y cargas}
+
+\begin{tabularx}{\textwidth}{@{}p{0.38\textwidth}Y@{}}
+\toprule
+\textbf{Elemento} & \textbf{Límite o referencia} \\
+\midrule
+Potencia máxima & 110 BHP. \\
+Velocidad máxima del motor & 2.550 RPM. \\
+Temperatura máxima de aceite & 245\textdegree F / 118\textdegree C. \\
+Presión de aceite & 25 a 100 psi. \\
+Factor de carga, flaps arriba & +4,4 g a -1,76 g. \\
+Factor de carga, flaps abajo & +3,5 g. \\
+Combustible total estándar & 26 gal. \\
+Combustible utilizable estándar & 24,5 gal. \\
+Grados de combustible & 100LL, 100 aviation y automóvil de 91 octanos mínimo cuando esté aprobado para el avión específico. \\
+\bottomrule
+\end{tabularx}
+
+\section{Maniobras autorizadas en categoría utilitaria}
+
+El avión permite vuelo acrobático limitado bajo las restricciones del manual. Las maniobras de instrucción listadas incluyen chandelles, lazy eights, virajes escarpados, pérdidas y barrenas. Las entradas sugeridas son 95 KIAS para chandelles, lazy eights y virajes escarpados; para pérdidas y barrenas se usa desaceleración lenta.
+
+No debe ocuparse el compartimento de equipaje ni asiento infantil durante maniobras acrobáticas. Las maniobras que puedan imponer cargas altas deben evitarse. El punto crítico es mantener control de velocidad: con actitud nariz abajo el avión acelera rápido y puede superar límites estructurales.
+
+\chapter{Procedimientos de emergencia}
+
+\section{Velocidades de emergencia}
+
+\begin{tabularx}{\textwidth}{@{}p{0.55\textwidth}Y@{}}
+\toprule
+\textbf{Situación} & \textbf{Velocidad} \\
+\midrule
+Falla de motor después del despegue & 60 KIAS. \\
+Mejor planeo & 60 KIAS. \\
+Aterrizaje precautorio con motor & 55 KIAS. \\
+Aterrizaje sin motor, flaps arriba & 65 KIAS. \\
+Aterrizaje sin motor, flaps abajo & 60 KIAS. \\
+Velocidad de maniobra a 1.670 / 1.500 / 1.350 lb & 104 / 98 / 93 KIAS. \\
+\bottomrule
+\end{tabularx}
+
+\section{Falla de motor durante carrera de despegue}
+
+La prioridad es detener el avión dentro de la pista restante. La secuencia de memoria debe concentrarse en reducir potencia, frenar y dejar el avión seguro.
+
+\begin{checklist}
+\item Potencia a ralentí.
+\item Frenos aplicados con decisión y control direccional.
+\item Flaps retraídos si ayuda a cargar peso en las ruedas.
+\item Mezcla a corte.
+\item Ignición y master apagados cuando corresponda.
+\end{checklist}
+
+\section{Falla de motor inmediatamente después del despegue}
+
+El error grave es intentar volver a la pista sin altura, velocidad y entrenamiento suficientes. La acción inicial es bajar la nariz y preservar 60 KIAS.
+
+\begin{checklist}
+\item Establecer 60 KIAS.
+\item Seleccionar zona de aterrizaje mayormente al frente, con cambios pequeños de dirección.
+\item Mezcla a corte, combustible cerrado e ignición apagada si el tiempo lo permite.
+\item Flaps según necesidad y distancia disponible.
+\item Master apagado antes del contacto cuando sea práctico.
+\end{checklist}
+
+\section{Falla de motor en vuelo}
+
+\begin{checklist}
+\item Establecer 60 KIAS y trimar si hay tiempo.
+\item Calor de carburador aplicado.
+\item Primer adentro y bloqueado.
+\item Válvula de combustible abierta.
+\item Mezcla rica.
+\item Ignición en BOTH; usar START sólo si la hélice está detenida y la situación lo justifica.
+\item Si no hay recuperación, preparar aterrizaje forzoso.
+\end{checklist}
+
+\section{Aterrizaje forzoso sin potencia}
+
+\begin{checklist}
+\item Mantener 65 KIAS con flaps arriba o 60 KIAS con flaps abajo.
+\item Elegir campo y planificar patrón simple, sin maniobras innecesarias.
+\item Mezcla a corte, combustible cerrado e ignición apagada cuando el aterrizaje sea inevitable.
+\item Flaps según necesidad; 30\textdegree es configuración recomendada si hay energía suficiente.
+\item Master apagado antes del toque.
+\item Destrabar puertas antes del contacto.
+\item Tocar ligeramente con actitud de cola baja y frenar con firmeza después del contacto.
+\end{checklist}
+
+\section{Aterrizaje precautorio con motor}
+
+Se usa cuando el motor aún entrega potencia pero continuar el vuelo no es prudente. La técnica incluye inspeccionar el área elegida, configurar parcialmente flaps y completar aproximación controlada.
+
+\begin{checklist}
+\item Establecer 60 KIAS y 20\textdegree de flaps para reconocimiento inicial.
+\item Sobrevolar el campo elegido a altura segura para revisar obstáculos, pendiente, superficie y escape.
+\item En final, 30\textdegree de flaps y 55 KIAS.
+\item Apagar equipos eléctricos no esenciales, master antes del contacto, puertas destrabadas.
+\item Tocar con actitud de cola baja y frenar con decisión.
+\end{checklist}
+
+\section{Amaraje}
+
+\begin{checklist}
+\item Transmitir Mayday en 121,5 MHz si procede y seleccionar 7700 en el transpondedor.
+\item Asegurar o arrojar objetos pesados del área de equipaje.
+\item Con viento fuerte o mar agitado, aproximar contra el viento; con poco viento y oleaje definido, paralelo a la ondulación.
+\item Usar 30\textdegree de flaps y establecer descenso estabilizado cercano a 300 ft/min a 55 KIAS.
+\item Destrabar puertas, proteger rostro y evacuar por puertas o ventanas después del contacto.
+\end{checklist}
+
+\section{Fuego}
+
+\subsection{Durante partida en tierra}
+Si el fuego aparece durante la partida, continuar el arranque puede succionar llamas y combustible hacia el motor. Si el motor parte, mantener alrededor de 1.700 RPM por algunos minutos y luego apagar para inspección. Si no parte, asegurar motor, cortar master, ignición y combustible, y extinguir con equipo disponible.
+
+\subsection{Fuego de motor en vuelo}
+\begin{checklist}
+\item Mezcla a corte.
+\item Combustible cerrado.
+\item Master apagado.
+\item Calefacción y aire de cabina cerrados, salvo ventilas de raíz alar.
+\item Mantener 85 KIAS; si persiste el fuego, ajustar velocidad de planeo según necesidad para intentar apagarlo.
+\item Ejecutar aterrizaje forzoso. No intentar rearranque.
+\end{checklist}
+
+\subsection{Fuego eléctrico en vuelo}
+\begin{checklist}
+\item Master apagado.
+\item Interruptores eléctricos apagados, excepto ignición.
+\item Ventilación, aire y calefacción cerrados.
+\item Usar extintor si está disponible.
+\item Ventilar después de descargar extintor en cabina.
+\item Si se requiere electricidad y el fuego está apagado, reenergizar por etapas para aislar el circuito defectuoso. No resetear breaker sospechoso.
+\end{checklist}
+
+\subsection{Fuego de cabina o ala}
+En cabina, cortar master, cerrar ventilación/calefacción, usar extintor y aterrizar lo antes posible. En ala, apagar luces de navegación, estrobos y pitot heat si están instalados. Un resbale puede alejar llamas del tanque y cabina; aterrizar con flaps retraídos si corresponde.
+
+\section{Hielo inadvertido}
+
+El vuelo en condiciones de hielo está prohibido. Si se encuentra hielo inadvertidamente, la respuesta correcta es salir de esas condiciones: virar, cambiar altitud o aterrizar. Usar pitot heat si está instalado, máximo desempañador, más RPM para reducir acumulación en hélice y calor de carburador según necesidad. Con hielo en borde de ataque, anticipar mayor velocidad de pérdida, dejar flaps retraídos y aproximar entre 65 y 75 KIAS según acumulación.
+
+\section{Falla eléctrica}
+
+\subsection{Carga excesiva}
+Si el amperímetro indica carga excesiva de manera sostenida, apagar alternador, reducir consumo eléctrico no esencial y terminar el vuelo tan pronto como sea práctico.
+
+\subsection{Luz de bajo voltaje}
+Si aparece bajo voltaje en vuelo con descarga en amperímetro, apagar radios, reciclar master, comprobar que la luz se apague y reencender radios. Si la luz vuelve, apagar alternador, minimizar consumos y terminar el vuelo. De noche, conservar batería para luces y flaps en aterrizaje.
+
+\section{Barrena inadvertida}
+
+\begin{checklist}
+\item Alerones neutrales.
+\item Potencia a ralentí.
+\item Pedal completo opuesto al sentido de rotación.
+\item Luego de llegar al tope de pedal, mover el comando adelante lo suficiente para romper la pérdida.
+\item Mantener comandos hasta que la rotación se detenga.
+\item Neutralizar pedal y recuperar suavemente de la picada.
+\end{checklist}
+
+\warning{La instrucción de barrenas debe hacerse sólo con instructor calificado, altura suficiente, avión dentro de peso y balance, sin equipaje suelto y con flaps retraídos. Las barrenas intencionales con flaps extendidos están prohibidas.}
+
+\chapter{Procedimientos normales}
+
+\section{Velocidades normales}
+
+\begin{longtable}{@{}p{0.55\textwidth}p{0.35\textwidth}@{}}
+\toprule
+\textbf{Fase} & \textbf{Velocidad} \\
+\midrule
+Ascenso normal después del despegue & 65--75 KIAS. \\
+Despegue corto, flaps 10\textdegree, sobre 50 ft & 54 KIAS. \\
+Ascenso normal con flaps arriba & 70--80 KIAS. \\
+Mejor razón de ascenso, nivel del mar & 67 KIAS. \\
+Mejor razón de ascenso, 10.000 ft & 61 KIAS. \\
+Mejor ángulo de ascenso, nivel del mar a 10.000 ft & 55 KIAS. \\
+Aproximación normal, flaps arriba & 60--70 KIAS. \\
+Aproximación normal, flaps 30\textdegree & 55--65 KIAS. \\
+Aproximación de campo corto, flaps 30\textdegree & 54 KIAS. \\
+Go-around, potencia máxima, flaps 20\textdegree & 55 KIAS. \\
+Viento cruzado máximo demostrado & 12 kt. \\
+\bottomrule
+\end{longtable}
+
+\section{Inspección prevuelo}
+
+El prevuelo debe confirmar estado general, combustible correcto y sin contaminación, aceite suficiente, superficies libres, tren y frenos sin daños, y avión sin hielo, nieve o escarcha. En vuelo nocturno se comprueban luces y se lleva linterna. En condiciones instrumentales con pitot heat instalado, se verifica calentamiento del tubo pitot dentro de unos 30 segundos con batería y pitot heat activados.
+
+\subsection{Cabina}
+\begin{checklist}
+\item POH/AFM disponible en el avión.
+\item Seguro del comando removido.
+\item Ignición apagada, aviónica apagada y master usado sólo para comprobaciones.
+\item Cantidad de combustible verificada en indicadores y visualmente cuando aplique.
+\item Luces y pitot heat comprobados según operación prevista.
+\item Master apagado después de las comprobaciones y válvula de combustible abierta.
+\end{checklist}
+
+\subsection{Exterior}
+\begin{checklist}
+\item Empenaje: amarras desconectadas, superficies libres y seguras.
+\item Ala derecha: alerón libre, amarra fuera, neumático, frenos, drenaje de combustible, tapa de estanque asegurada.
+\item Nariz: aceite entre mínimo y máximo, tapa asegurada, drenaje de colador, hélice sin mellas ni grietas, toma de aire libre, rueda de nariz y amarra.
+\item Ala izquierda: amarra fuera, pitot sin cubierta ni obstrucción, rueda, frenos, alarma de pérdida, drenaje, combustible visual y tapa asegurada.
+\item Borde de salida izquierdo: alerón libre y seguro.
+\end{checklist}
+
+\section{Antes de partir motor}
+
+\begin{checklist}
+\item Prevuelo completo.
+\item Asientos, cinturones y arneses ajustados y bloqueados.
+\item Válvula de combustible abierta.
+\item Radios y equipos eléctricos apagados.
+\item Frenos probados y estacionamiento aplicado.
+\item Circuit breakers adentro.
+\end{checklist}
+
+\section{Partida con temperatura sobre congelamiento}
+
+\begin{checklist}
+\item Mezcla rica.
+\item Calor de carburador frío.
+\item Primer según necesidad, normalmente hasta tres emboladas.
+\item Acelerador abierto aproximadamente media pulgada.
+\item Área de hélice despejada.
+\item Master encendido.
+\item Ignición a START y soltar al encender.
+\item Ajustar a 1.000 RPM o menos.
+\item Confirmar presión de aceite.
+\end{checklist}
+
+\note{El carburador no tiene bomba de aceleración. Bombear acelerador durante la partida no ayuda y puede agravar una condición de mezcla incorrecta. Si no hay presión de aceite en el tiempo esperado, apagar e investigar.}
+
+\section{Antes del despegue}
+
+\begin{checklist}
+\item Freno de estacionamiento aplicado.
+\item Puertas cerradas y aseguradas.
+\item Controles libres y correctos.
+\item Instrumentos de vuelo ajustados.
+\item Combustible abierto.
+\item Mezcla rica bajo 3.000 ft.
+\item Trim en posición de despegue.
+\item Motor a 1.700 RPM para prueba: magnetos, calor de carburador, instrumentos de motor, amperímetro y succión.
+\item Radios y luces configuradas.
+\item Fricción de acelerador ajustada.
+\item Frenos liberados.
+\end{checklist}
+
+\section{Despegue normal}
+
+\begin{checklist}
+\item Flaps 0\textdegree a 10\textdegree.
+\item Calor de carburador frío.
+\item Potencia plena.
+\item Levantar rueda de nariz cerca de 50 KIAS.
+\item Ascender a 65--75 KIAS.
+\end{checklist}
+
+\section{Despegue de campo corto}
+
+\begin{checklist}
+\item Flaps 10\textdegree.
+\item Calor de carburador frío.
+\item Frenos aplicados.
+\item Potencia plena y mezcla rica; sobre 3.000 ft, empobrecer para máximo RPM antes de soltar frenos.
+\item Soltar frenos y mantener actitud levemente cola baja.
+\item Mantener 54 KIAS hasta franquear obstáculos.
+\item Retraer flaps lentamente después de 60 KIAS.
+\end{checklist}
+
+\section{Ascenso en ruta}
+
+Usar 70--80 KIAS con potencia plena. Bajo 3.000 ft, mezcla rica; sobre esa altitud, empobrecer para operación suave o máximo RPM. Si se requiere máxima performance, usar las velocidades de mejor razón de ascenso del capítulo de performance.
+
+\section{Crucero}
+
+El crucero normal se realiza entre 55\% y 75\% de potencia. El rango típico de potencia es 1.900 a 2.550 RPM, sin exceder 75\%. Ajustar trim y empobrecer mezcla. Para consumo recomendado, empobrecer hasta el pico de RPM y luego enriquecer o dejar caer aproximadamente 25--50 RPM según suavidad de operación.
+
+\section{Antes de aterrizar}
+
+\begin{checklist}
+\item Asientos, cinturones y arneses asegurados.
+\item Mezcla rica.
+\item Calor de carburador aplicado antes de cerrar acelerador.
+\end{checklist}
+
+\section{Aterrizaje normal}
+
+\begin{checklist}
+\item Aproximar a 60--70 KIAS con flaps arriba.
+\item Extender flaps según necesidad bajo 85 KIAS.
+\item Con flaps abajo, aproximar a 55--65 KIAS.
+\item Tocar primero con tren principal.
+\item Bajar rueda de nariz suavemente.
+\item Usar frenado mínimo necesario.
+\end{checklist}
+
+\section{Aterrizaje de campo corto}
+
+\begin{checklist}
+\item Aproximar a 60--70 KIAS con flaps arriba.
+\item Extender 30\textdegree bajo 85 KIAS.
+\item Mantener 54 KIAS.
+\item Reducir potencia a ralentí al franquear obstáculo.
+\item Tocar con tren principal, frenar fuerte y retraer flaps para máxima efectividad de frenado.
+\end{checklist}
+
+\section{Go-around}
+
+\begin{checklist}
+\item Potencia plena.
+\item Calor de carburador frío.
+\item Flaps a 20\textdegree inmediatamente.
+\item Mantener 55 KIAS.
+\item Retraer flaps gradualmente al establecer régimen positivo y velocidad segura.
+\end{checklist}
+
+\section{Después del aterrizaje y aseguramiento}
+
+Después de liberar pista, flaps arriba y calor de carburador frío. Para asegurar el avión: freno de estacionamiento, radios y equipos eléctricos apagados, mezcla a corte, ignición apagada, master apagado y seguro de controles instalado.
+
+\chapter{Performance y planificación}
+
+\section{Principio de uso de tablas}
+
+Las tablas de performance se basan en pruebas con avión y motor en buen estado, condiciones definidas y técnica promedio. La planificación real debe incluir correcciones por altitud de presión, temperatura, viento, pista, pendiente, superficie, peso, técnica y estado del avión. El propio manual advierte que variables como técnica de mezcla, estado del motor/hélice y turbulencia pueden producir diferencias de 10\% o más en alcance y autonomía.
+
+\section{Temperatura estándar}
+
+La atmósfera estándar parte de 15\textdegree C al nivel del mar y disminuye aproximadamente 2\textdegree C por cada 1.000 ft. La tabla agregada del POH muestra, por ejemplo, 7\textdegree C a 4.000 ft, -1\textdegree C a 8.000 ft, -5\textdegree C a 10.000 ft y -25\textdegree C a 20.000 ft.
+
+\section{Ejemplo de cálculo de combustible}
+
+Una forma prudente de estimar combustible es separar ascenso, crucero y reserva:
+
+\begin{enumerate}
+\item Determinar peso de despegue, altitud de presión, temperatura y viento.
+\item Obtener combustible y distancia de ascenso desde tabla.
+\item Corregir por temperatura no estándar. Como regla del POH, aumentar tiempo, combustible y distancia de ascenso en torno a 10\% por cada 10\textdegree C sobre estándar.
+\item Restar la distancia de ascenso a la distancia total para obtener distancia de crucero.
+\item Calcular velocidad terrestre: \(GS = TAS \pm viento\).
+\item Calcular tiempo de crucero: \(t = distancia / GS\).
+\item Multiplicar por consumo de crucero y sumar combustible de ascenso, rodaje/despegue y reserva.
+\end{enumerate}
+
+\section{Crucero de referencia}
+
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}ccc@{}}
+\toprule
+\textbf{Altitud} & \textbf{75\%} & \textbf{65\%} & \textbf{55\%} \\
+\midrule
+Nivel del mar & 100 KTAS / 16,4 NMPG & 94 KTAS / 17,8 NMPG & 87 KTAS / 19,3 NMPG \\
+4.000 ft & 103 KTAS / 17,0 NMPG & 97 KTAS / 18,4 NMPG & 89 KTAS / 19,8 NMPG \\
+8.000 ft & 107 KTAS / 17,6 NMPG & 100 KTAS / 18,9 NMPG & 91 KTAS / 20,4 NMPG \\
+\bottomrule
+\end{tabularx}
+
+\note{La tabla anterior es útil para comparar potencia, altitud y economía, no para reemplazar el cálculo completo del POH.}
+
+\section{Ahorro de combustible en instrucción}
+
+Para entrenamiento, el POH recomienda operar con 55\% a 60\% de potencia hacia y desde el área de práctica, empobrecer mezcla para máximo RPM en ascensos sobre 3.000 ft, y usar mezcla empobrecida en operaciones a 75\% de potencia o menos cuando el motor funcione suavemente. Aplicado correctamente, el ahorro puede llegar a alrededor de 13\% respecto de entrenamiento típico con mezcla totalmente rica.
+
+\chapter{Peso y balance}
+
+\section{Responsabilidad del piloto}
+
+La información de peso vacío, brazo, momento y equipo instalado pertenece al avión específico y debe obtenerse de los registros de peso y balance que van a bordo. El piloto debe asegurar que el avión esté dentro de peso máximo y centro de gravedad antes de operar.
+
+\section{Método práctico}
+
+\begin{enumerate}
+\item Tomar peso vacío básico y momento/1000 desde los registros reales del avión.
+\item Agregar combustible utilizable, piloto, pasajero, equipaje y otros ítems.
+\item Para cada ítem, calcular momento como \(peso \times brazo\). Si se trabaja en momento/1000, dividir por 1000.
+\item Sumar pesos y momentos.
+\item Restar combustible de partida y rodaje si el formulario lo considera antes de peso de despegue.
+\item Verificar el punto final contra la envolvente de centro de gravedad.
+\end{enumerate}
+
+\section{Ejemplo de carga del POH}
+
+El ejemplo del POH usa un avión con 1.136 lb de peso vacío básico y momento/1000 de 34,0. Agrega piloto y pasajero por 340 lb con momento/1000 de 13,3, equipaje por 52 lb con momento/1000 de 3,3 y llega a 1.675 lb en rampa con momento/1000 de 56,8. Al descontar 5 lb de combustible de partida y rodaje, queda en 1.670 lb de despegue con momento/1000 de 56,6. Ese punto cae dentro de la envolvente del ejemplo.
+
+\warning{No copiar este ejemplo al avión real. Sólo muestra el método. La carga aceptable depende del peso vacío y equipo instalados en la aeronave específica.}
+
+\chapter{Sistemas del avión}
+
+\section{Estructura y controles}
+
+La estructura es metálica semimonocoque, con alas arriostradas, dos plazas y tren triciclo. Los controles de vuelo son convencionales: alerones, timón y elevador accionados mecánicamente. El mando controla alerones y elevador; los pedales controlan timón y frenos.
+
+El compensador es manual y actúa sobre el elevador. Girar la rueda de trim hacia adelante ajusta nariz abajo; girarla hacia atrás ajusta nariz arriba.
+
+\section{Panel e instrumentos}
+
+Los instrumentos primarios se ubican frente al piloto. El panel agrupa velocímetro, coordinador de viraje, indicador de succión, altímetro, variómetro, instrumentos giroscópicos, tacómetro, amperímetro, luz de bajo voltaje, indicadores de combustible, instrumentos de motor, switches eléctricos, ignición, master, primer, freno de estacionamiento, calefacción/aire, flaps, trim y breakers.
+
+\section{Control en tierra y tren}
+
+El tren es triciclo fijo con rueda de nariz direccional y frenos hidráulicos de disco en las ruedas principales. El guiado básico se hace con pedales de timón; el frenado diferencial permite radios de giro más cerrados. Al remolcar, no debe forzarse la rueda de nariz más allá de sus límites porque puede dañarse la estructura.
+
+\section{Flaps}
+
+Los flaps son de ranura simple y se accionan eléctricamente mediante selector. El sistema tiene posiciones mecánicas de referencia en 10\textdegree y 20\textdegree. Para posiciones mayores se desplaza el selector más allá del tope. El circuito está protegido por breaker de 15 A.
+
+\section{Equipaje, asientos y puertas}
+
+El compartimento de equipaje está detrás de los asientos y debe asegurarse con red o amarras. No se deben transportar personas en esa zona salvo asiento infantil aprobado e instalado. Los asientos se ajustan en rieles y deben quedar bloqueados. Cinturones y arneses deben permitir alcance de controles, pero limitar movimiento en una desaceleración.
+
+Si una puerta se abre accidentalmente en vuelo, no implica por sí sola aterrizaje inmediato. El procedimiento recomendado es estabilizar cerca de 65 KIAS, trimar el avión, empujar la puerta levemente hacia afuera y cerrarla con firmeza.
+
+\section{Motor e inducción}
+
+El Lycoming O-235-L2C usa dos magnetos y dos bujías por cilindro. La operación normal es con ambas magnetos. Las posiciones R y L son para comprobación y uso anormal. El sistema de inducción toma aire por la capota, lo filtra y lo dirige al carburador. El calor de carburador entrega aire calentado y no filtrado; a potencia plena puede causar una caída aproximada de 150 a 200 RPM.
+
+El aceite mínimo operativo es 4 qt. Para vuelos normales menores de tres horas, el POH recomienda 5 qt para reducir pérdida por respiradero; para vuelos más largos, 6 qt.
+
+\section{Combustible}
+
+El sistema estándar tiene dos estanques alares de 13 galones cada uno, con 24,5 galones utilizables. La alimentación es por gravedad hacia el carburador. La ventilación del sistema es crítica: una obstrucción puede reducir flujo y causar detención del motor. Los indicadores de combustible son de flotador y pueden ser imprecisos en derrapes, resbales o actitudes anormales. El sistema debe drenarse antes del primer vuelo del día y después de cada reabastecimiento.
+
+\section{Eléctrico}
+
+El sistema es de corriente continua de 28 V, con batería de 24 V y alternador de 60 A. El master es dividido: BAT controla energía eléctrica general; ALT controla el alternador. Aviónica debe permanecer apagada durante partida o uso de fuente externa para evitar transientes.
+
+El amperímetro indica carga o descarga. Una luz roja de bajo voltaje indica caída bajo normal después de una condición de descarga. Si el alternador se desconecta por sobrevoltaje, puede intentarse resetear reciclando master, pero si la luz vuelve se trata como falla confirmada.
+
+\section{Pitot-estático, vacío y alarma de pérdida}
+
+El sistema pitot-estático alimenta velocímetro, altímetro y variómetro. Con pitot heat instalado, debe activarse en condiciones instrumentales frías donde exista riesgo de hielo. El sistema de vacío alimenta instrumentos giroscópicos como horizonte e indicador direccional; la succión normal indicada es 4,5 a 5,4 pulgadas de mercurio.
+
+La alarma de pérdida es neumática y entrega aviso audible aproximadamente 5 a 10 kt antes de la pérdida. Durante prevuelo se comprueba aplicando succión en la toma del borde de ataque con un paño limpio.
+
+\chapter{Apéndice: checklist resumida de bolsillo}
+
+\section*{Antes de motor}
+\begin{multicols}{2}
+\begin{checklist}
+\item Prevuelo completo.
+\item Asientos/cinturones ajustados.
+\item Combustible abierto.
+\item Radios/equipos apagados.
+\item Frenos probados y puestos.
+\item Breakers adentro.
+\end{checklist}
+\end{multicols}
+
+\section*{Partida}
+\begin{multicols}{2}
+\begin{checklist}
+\item Mezcla rica.
+\item Carb heat frío.
+\item Primer según necesidad.
+\item Acelerador 1/2 pulgada.
+\item Hélice libre.
+\item Master ON.
+\item Ignición START.
+\item 1.000 RPM o menos.
+\item Presión de aceite.
+\end{checklist}
+\end{multicols}
+
+\section*{Antes de despegue}
+\begin{multicols}{2}
+\begin{checklist}
+\item Puertas aseguradas.
+\item Controles libres/correctos.
+\item Instrumentos ajustados.
+\item Combustible abierto.
+\item Mezcla rica.
+\item Trim despegue.
+\item Run-up 1.700 RPM.
+\item Magnetos, carb heat, motor, alternador y succión.
+\item Radios/luces.
+\end{checklist}
+\end{multicols}
+
+\section*{Despegue normal}
+\begin{multicols}{2}
+\begin{checklist}
+\item Flaps 0--10\textdegree.
+\item Carb heat frío.
+\item Potencia plena.
+\item Nariz arriba a 50 KIAS.
+\item Ascenso 65--75 KIAS.
+\end{checklist}
+\end{multicols}
+
+\section*{Falla motor en vuelo}
+\begin{multicols}{2}
+\begin{checklist}
+\item 60 KIAS.
+\item Campo elegido.
+\item Carb heat ON.
+\item Primer bloqueado.
+\item Combustible abierto.
+\item Mezcla rica.
+\item Ignición BOTH/START.
+\item Si no parte, aterrizaje forzoso.
+\end{checklist}
+\end{multicols}
+
+\section*{Antes de aterrizar}
+\begin{multicols}{2}
+\begin{checklist}
+\item Asientos/cinturones.
+\item Mezcla rica.
+\item Carb heat antes de cerrar potencia.
+\item Flaps bajo 85 KIAS.
+\item Aproximación 55--65 KIAS con flaps.
+\end{checklist}
+\end{multicols}
+
+\chapter{Glosario mínimo}
+
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}Y@{}}
+\toprule
+\textbf{Término} & \textbf{Uso} \\
+\midrule
+KIAS & Velocidad indicada en nudos. Es la referencia normal de operación. \\
+KCAS & Velocidad calibrada en nudos, corregida por errores de instrumento/posición. \\
+KTAS & Velocidad verdadera en nudos. Útil para navegación y performance. \\
+VA & Velocidad de maniobra. Cambia con el peso. \\
+VFE & Velocidad máxima con flaps extendidos. \\
+VNE & Velocidad que nunca debe excederse. \\
+VNO & Límite superior de operación normal estructural. \\
+CG & Centro de gravedad. Debe permanecer dentro de envolvente. \\
+Moment/1000 & Momento dividido por mil para simplificar tablas de peso y balance. \\
+Carb heat & Calor de carburador; ayuda ante hielo, pero usa aire no filtrado y reduce potencia. \\
+\bottomrule
+\end{tabularx}
+
+\backmatter
+\chapter*{Control de versión}
+
+\begin{tabularx}{\textwidth}{@{}p{0.18\textwidth}p{0.24\textwidth}Y@{}}
+\toprule
+\textbf{Versión} & \textbf{Fecha} & \textbf{Cambio} \\
+\midrule
+0.1 & Inicial & Estructura base del libro en LaTeX, resumen en español de especificaciones, limitaciones, emergencias, procedimientos normales, performance, peso y balance, sistemas y checklist de bolsillo. \\
+\bottomrule
+\end{tabularx}
+
+\end{document}
